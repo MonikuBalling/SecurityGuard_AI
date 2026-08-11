@@ -5,6 +5,7 @@ import threading
 from threat_detector import ThreatDetector
 from auto_threat_updater import ThreatUpdater
 from privacy_shield import PrivacyShield
+from ai_mesh_guardian import AIMeshGuardian
 
 if sys.platform == 'win32':
     try:
@@ -15,11 +16,12 @@ if sys.platform == 'win32':
 class SecurityGuardianApp:
     def __init__(self):
         print("🛡️ ========================================================")
-        print("🛡️  AI Security Guardian - ノートン超え超軽量＆高精度セキュリティ常駐  🛡️")
+        print("🛡️  AI Security Guardian - 3重AI相互メッシュ監視常駐モード  🛡️")
         print("🛡️ ========================================================")
         self.detector = ThreatDetector()
         self.updater = ThreatUpdater()
         self.shield = PrivacyShield()
+        self.mesh_guardian = AIMeshGuardian()
         self.is_running = True
 
     def start_auto_update_loop(self):
@@ -33,20 +35,21 @@ class SecurityGuardianApp:
         t.start()
 
     def start_realtime_monitor(self):
-        """リアルタイム超軽量スキャン ＆ ふるまい防御"""
-        print("👁️ [AIリアルタイム監視] ノートン並以上の超高精度ガード中...")
+        """3重AIクロス監視 ＆ 超軽量ふるまい防衛"""
+        print("🕸️ [3重AIメッシュ監視スタート] AIがAIを2重3重に相互監視中...")
+        self.mesh_guardian.start_mesh_guard()
         self.start_auto_update_loop()
 
         try:
             while self.is_running:
                 new_threats = self.detector.scan_new_threats()
                 for threat in new_threats:
-                    print(f"\n🚨 【AIセキュリティ自動ブロック＆警告】")
+                    print(f"\n🚨 【3重AIメッシュ網：自動ブロック＆警告】")
                     print(f"  ・検知アプリ: {threat['name']}")
                     print(f"  ・判定理由: {threat['reason']}")
                     print(f"  ・実行パス: {threat['path']}")
                     print(f"  ・検知時刻: {threat['time']}")
-                    print("  👉 [自動防衛] 未知の不審な挙動を検知して安全隔離いたしました！\n")
+                    print("  👉 [3重AI防衛網] AI相互検証により不審プロセスを安全隔離いたしました！\n")
                 
                 time.sleep(3)
         except KeyboardInterrupt:
