@@ -1,0 +1,12 @@
+{
+  "version": "1.0.1786437478",
+  "last_updated": "2026-08-11 17:37:58",
+  "known_bad_hashes": [],
+  "suspicious_keywords": [
+    "ransomware",
+    "keylogger",
+    "trojan",
+    "stealer",
+    "miner"
+  ]
+}
